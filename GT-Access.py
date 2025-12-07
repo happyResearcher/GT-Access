@@ -397,7 +397,7 @@ if __name__ == "__main__":
 
     # set the same max_len for ablation study
     max_len = 8
-    runs=5
+    runs=10
     for i in range(runs):
         # # 1) Ours
         m_ours, thr_ours, meta_ours = train_one(
@@ -435,7 +435,7 @@ if __name__ == "__main__":
 
     for i in range(runs):
         # # hyperparameter adjustment (max_lens)
-        max_lens=[8,16,32,64]
+        max_lens=[16,32,64]
         for max_len in max_lens:
             m_ours, thr_ours, meta_ours = train_one(
                 "ours", train_base, val_base, test_base,
@@ -446,3 +446,4 @@ if __name__ == "__main__":
                 patience=10
             )
             append_result_csv(results_csv, meta_ours, m_ours,TABLE_COLS)
+
